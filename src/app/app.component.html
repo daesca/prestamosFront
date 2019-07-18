@@ -1,21 +1,60 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container">
+  <div class="row mb-4 mt-4">
+    <div class="col-12">
+        <h3>Bienvenido!</h3>
+        <h5>Elija la opción que desee realizar.</h5>
+    </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a routerLink="/register" [ngClass]="{'nav-link': true, 'active': active1} " (click)="changeActives('register')">Registrar cliente banco</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/loan" [ngClass]="{'nav-link': true, 'active': active2} " (click)="changeActives('loan')">Solicitar préstamo</a>
+        </li>
+      </ul>
+      <!-- <div class="col-md-6 register-box text-center">
+          <a routerLink="/register" class="btn btn-info">Registrar cliente banco</a>
+      </div>
+      <div class="col-md-6 loan-box text-center">
+          <a routerLink="/loan" class="btn btn-info">Solicitar préstamo</a>
+      </div> -->
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
 <router-outlet></router-outlet>
+
+<!-- <div id="main-component">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <h1>Bienvenido Usuario</h1>
+        <form #f="ngForm" (ngSubmit)="searchClient(f)">
+          <div class="form-group">
+              <label for="userId">Ingrese su número de identificación:</label>
+              <input type="number" name="userId" class="form-control" ngModel #userId="ngModel" required>
+          </div>
+          <div class="form-group">
+              <label for="firstname">Ingrese sus nombres:</label>
+              <input type="text" name="firstname" class="form-control" ngModel #firstname="ngModel" required>
+          </div>
+          <div class="form-group">
+              <label for="lastname">Ingrese sus apellidos:</label>
+              <input type="text" name="lastname" class="form-control" ngModel #lastname="ngModel" required>
+          </div>
+          <div class="form-group">
+              <label for="age">Ingrese su fecha de nacimiento:</label>
+              <input type="date" name="age" class="form-control" ngModel #age="ngModel" required>
+          </div>
+          <div *ngIf="errorText != ''">
+            <p style="color: red">
+              {{ errorText }}
+            </p>
+          </div>
+          <div class="form-group text-center">
+              <button class="btn btn-primary mr-3">Registrarse</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,18 @@
+#custom-preload{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    top: 0;
+    opacity: .0;
+    background-color: #000;
+    transition: .3s opacity;
+}
+
+#custom-preload.show{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    opacity: .5;
+
+}

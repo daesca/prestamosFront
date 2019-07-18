@@ -1,0 +1,84 @@
+<div id="main-component">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+              <h1>Formulario de prestamos</h1>
+              <form #f="ngForm" (ngSubmit)="verifyLoan(f)">
+                <div class="form-group">
+                    <label for="enterprise-name">Empresa:</label>
+                    <input type="text" name="enterprise-name" class="form-control" ngModel #enterpriseName="ngModel" required>
+                    <div *ngIf="enterpriseName.invalid && (enterpriseName.dirty || enterpriseName.touched)">
+                        <small *ngIf="enterpriseName.errors.required" class="form-text" style="color: red">El campo no puede estar vacío</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="nit">NIT Empresarial:</label>
+                    <input type="number" name="nit" min="0" class="form-control" ngModel #nit="ngModel" required>
+                    <div *ngIf="nit.invalid && (nit.dirty || nit.touched)">
+                        <small *ngIf="nit.errors.required" class="form-text" style="color: red">El campo no puede estar vacío y solo debe contener números</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="salary">Salario Actual:</label>
+                    <input type="number" name="salary" min="0" class="form-control" ngModel #salary="ngModel" required>
+                    <div *ngIf="salary.invalid && (salary.dirty || salary.touched)">
+                        <small *ngIf="salary.errors.required" class="form-text" style="color: red">El campo no puede estar vacío y solo debe contener números</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="date-of-hire">Fecha de contratación:</label>
+                    <input type="date" name="date-of-hire" class="form-control" ngModel #dateOfHire="ngModel" required>
+                    <div *ngIf="dateOfHire.invalid && (dateOfHire.dirty || dateOfHire.touched)">
+                        <small *ngIf="dateOfHire.errors.required" class="form-text" style="color: red">El campo no puede estar vacío</small>
+                    </div>
+                </div>
+                <div *ngIf="errorText != ''">
+                  <p style="color: red">
+                    {{ errorText }}
+                  </p>
+                </div>
+                <div class="form-group text-center">
+                    <button class="btn btn-primary mr-3">Solicitar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+    <!-- Modal structure -->
+    <div [ngClass]="{'modal': true, 'fade': true, 'show': show}" [ngStyle]="{'display': display}" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{ modalTextOptions.title }}</h5>
+              <button type="button" class="close" (click)="closeModal()" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              {{ modalTextOptions.mainText }}
+            </div>
+            <div class="modal-footer">
+              <button type="button" (click)="closeModal()" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div id="custom-register-modal" [ngClass]="{'modal-backdrop':true, 'fade':true, 'show':show}" [ngStyle]="{'display': display}"></div>
+    
+      <div id="custom-preload" [ngClass]="{'show':showPreload}">
+          <div class="spinner-grow text-light" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-light" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-light" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-light" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+      </div>
